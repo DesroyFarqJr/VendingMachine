@@ -2,12 +2,12 @@ package com.techelevator.application;
 
 import java.math.BigDecimal;
 
-public class gum implements Items   {
+public class Gum implements Items   {
     private String name;
     private BigDecimal price;
 
 
-    public gum() {
+    public Gum() {
         name = "DoubleMit";
         price = new BigDecimal("1.00");
 
