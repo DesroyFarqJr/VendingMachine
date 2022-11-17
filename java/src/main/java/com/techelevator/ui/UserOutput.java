@@ -29,4 +29,10 @@ public class UserOutput
         System.out.println();
     }
 
+    public static void displayLevelPurchaseOptions() {
+        System.out.println("M ) Feed money");
+        System.out.println("S ) Select items");
+        System.out.println("F ) Finish Transaction");
+    }
+
 }

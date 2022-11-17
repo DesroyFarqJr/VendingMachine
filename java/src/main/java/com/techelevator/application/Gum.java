@@ -7,7 +7,7 @@ public class Gum implements Items   {
     private BigDecimal price;
 
 
-    public gum() {
+    public Gum() {
         name = "DoubleMit";
         price = new BigDecimal("1.00");
 

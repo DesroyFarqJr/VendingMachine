@@ -45,6 +45,20 @@ public class UserInput
         }
 
     }
+    public static String getPurchaseChoice() {
+        System.out.println("Enter choice:");
+        String choice = scanner.nextLine();
+
+        if(choice.equals("M")) {
+            return "Feed Money";
+        } else if(choice.equals("S")) {
+            return "Select Item";
+        } else if(choice.equals("3")) {
+            return "Finish Transaction";
+        } else {
+            return "";
+        }
+    }
 
     
 }
