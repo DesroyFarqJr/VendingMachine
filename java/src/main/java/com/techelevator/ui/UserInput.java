@@ -17,7 +17,7 @@ public class UserInput
         System.out.println("What would you like to do?");
         System.out.println();
 
-        System.out.println("D) Display Vending Machine Items");
+        System.out.println("D) Display Vending Machine com.techelevator.application.Items");
         System.out.println("P) Purchase");
         System.out.println("E) Exit");
 
