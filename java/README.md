@@ -10,13 +10,13 @@ Taste Elevator.  TE Vending Customers purchase food items from the vending machi
    - Each item has a Name and a Price.
 2. A main menu must display when the software runs, presenting the following options:
     > ```
-    > (D) Display Vending Items
+    > (D) Display Vending com.techelevator.application.Items
     > (P) Purchase
     > (E) Exit
     > ```
 3. The inventory is stocked via an input file when the application starts.  **2 different files are provided, make sure your program will work with either one.**
 4. Each time the application runs, the inventory is restocked.  The only time the inventory is stocked is when it is started.
-5. When the customer selects "(D) Display Vending Items", they're presented
+5. When the customer selects "(D) Display Vending com.techelevator.application.Items", they're presented
    with a list of all items in the machine with its quantity remaining:
    
     - Each product has a slot identifier and a purchase price.
@@ -110,7 +110,7 @@ There is an alternate input file `catering1.csv` provided for further testing.
 ### Sales Report
 The output sales report file is a pipe-delimited file. Each line is a separate item with the number of sales for the applicable item. At the end of the report is a blank line followed by the **TOTAL SALES** dollar amount indicating the gross sales from the vending machine.
 
-Items purchased at a discount through the BOGODO sale are the last number in the row for each item in the following format:
+com.techelevator.application.Items purchased at a discount through the BOGODO sale are the last number in the row for each item in the following format:
 
 ```
 Taste Eelvator Sales Report
