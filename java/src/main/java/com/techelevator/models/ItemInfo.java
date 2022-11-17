@@ -8,12 +8,14 @@ public class ItemInfo {
     private Double price;
     private String slot;
     private String itemType;
+    private int amountLeft;
 
-    public ItemInfo(String name, String slot, Double price, String itemType) {
+    public ItemInfo(String slot, String name, Double price, String itemType) {
         this.name = name;
         this.price = price;
         this.slot = slot;
         this.itemType = itemType;
+        this.amountLeft = 6;
     }
 
     public String getName() {
@@ -32,5 +34,25 @@ public class ItemInfo {
         return itemType;
     }
 
+    public int getRemainingAmount() {
+        return amountLeft;
+    }
 
+    public void setRemainingAmount(int remainingAmount) {
+        this.amountLeft = remainingAmount;
+    }
+
+    @Override
+    public String toString() {
+        String needRestock = "NO LONGER AVAILABLE";
+        if (amountLeft == 0) {
+            return needRestock;
+        }
+        return "ItemInfo{" + "slot:" + slot +
+                "  name:'" + name + '\'' +
+                ", price:" + price +
+                ", remainingAmount:" + amountLeft +
+                '}';
+
+    }
 }

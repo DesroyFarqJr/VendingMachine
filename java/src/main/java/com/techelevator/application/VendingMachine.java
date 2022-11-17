@@ -6,17 +6,18 @@ import com.techelevator.ui.UserOutput;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class VendingMachine 
-{
+public class VendingMachine {
 
     private static List<ItemInfo> itemList = new ArrayList<>();
-        public void loadFile() {
+
+    public void loadFile() {
         File file = new File("catering.csv");
 
         try {
@@ -29,7 +30,6 @@ public class VendingMachine
                 System.out.println(Arrays.toString(itemArr));
 
 
-
             }
 
         } catch (FileNotFoundException e) {
@@ -38,27 +38,23 @@ public class VendingMachine
     }
 
 
+    public void run() {
+        loadFile();
 
-    public void run()
-    {   loadFile();
-
-        while(true)
-        {
+        while (true) {
             UserOutput.displayHomeScreen();
             String choice = UserInput.getHomeScreenOption();
 
-            if(choice.equals("display"))
-            {
+            if (choice.equals("display")) {
                 System.out.println("Vending Machine Choices");
+                displayMenu();
+
+
                 // display the vending machine slots
-            }
-            else if(choice.equals("purchase"))
-            {
+            } else if (choice.equals("purchase")) {
                 purchaseMenu();
                 // make a purchase
-            }
-            else if(choice.equals("exit"))
-            {
+            } else if (choice.equals("exit")) {
                 // good bye
                 break;
             }
@@ -67,22 +63,35 @@ public class VendingMachine
 
     public static void purchaseMenu() {
         boolean stay = true;
-        while(stay) {
+        while (stay) {
             UserOutput.displayLevelPurchaseOptions();
             String choice = UserInput.getPurchaseChoice();
 
             System.out.println("Name of item?");
 
-            if(choice.equals("Feed Money")) {
+            if (choice.equals("Feed Money")) {
 
-            } else if(choice.equals("Select Item")) {
+            } else if (choice.equals("Select Item")) {
 
-            } else if(choice.equals("Finish Transaction")) {
+            } else if (choice.equals("Finish Transaction")) {
 
             }
 
         }
     }
-    
-}
 
+    public static void displayMenu() {
+
+       int remainingamount = 6;
+
+        for (int i = 0; i < itemList.size(); i++) {
+        ItemInfo test = itemList.get(i);
+        System.out.println(test.toString());
+
+
+
+        }
+
+
+            }
+}
