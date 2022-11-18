@@ -8,12 +8,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class VendingMachine {
+
+    Funds availableFunds = new Funds();
 
     private static List<ItemInfo> itemList = new ArrayList<>();
 
@@ -61,17 +60,21 @@ public class VendingMachine {
         }
     }
 
-    public static void purchaseMenu() {
+    public void purchaseMenu() {
         boolean stay = true;
         while (stay) {
             UserOutput.displayLevelPurchaseOptions();
+            System.out.println("Current Money Provided: $" + availableFunds.getFunds());
             String choice = UserInput.getPurchaseChoice();
 
             System.out.println("Name of item?");
 
             if (choice.equals("Feed Money")) {
+                feedMoney();
 
             } else if (choice.equals("Select Item")) {
+
+                //selectItem();
 
             } else if (choice.equals("Finish Transaction")) {
 
@@ -82,16 +85,38 @@ public class VendingMachine {
 
     public static void displayMenu() {
 
-       int remainingamount = 6;
+      // int remainingAmount = 6;
 
         for (int i = 0; i < itemList.size(); i++) {
         ItemInfo test = itemList.get(i);
         System.out.println(test.toString());
+        }
+    }
 
+    public void feedMoney() {
+        availableFunds.addFunds(UserInput.insertCash());
 
+        purchaseMenu();
+    }
+
+    /*public void selectItem() {
+
+        String slotChoice = UserInput.itemSelector();
+        int index = 0;
+
+        List<String> stringList = new ArrayList<>();
+
+        for(int i = 0; i < itemList.size(); i++) {
+            String thing = Arrays.toString(itemList.get(i));
 
         }
 
+        if(slotChoice.equals("A1")) {
+            index = newList.indexOf("A1");
+        }
+        System.out.println(itemList.get(index));
 
-            }
+
+       purchaseMenu();
+    }*/
 }

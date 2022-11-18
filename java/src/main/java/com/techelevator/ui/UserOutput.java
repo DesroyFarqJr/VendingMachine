@@ -1,5 +1,7 @@
 package com.techelevator.ui;
 
+import com.techelevator.application.Funds;
+
 import java.math.BigDecimal;
 import java.util.Map;
 
@@ -35,6 +37,8 @@ public class UserOutput
         System.out.println("M ) Feed money");
         System.out.println("S ) Select items");
         System.out.println("F ) Finish Transaction");
+        System.out.println();
+
     }
 
 }

@@ -60,5 +60,19 @@ public class UserInput
         }
     }
 
+    public static double insertCash() {
+        System.out.println("How much money?");
+        String insertedCash = scanner.nextLine();
+        double insertedCashAmount = Double.parseDouble(insertedCash);
+        return insertedCashAmount;
+    }
+
+    public static String itemSelector() {
+        System.out.println("Please choose a slot number: ");
+        String slotChoice = scanner.nextLine();
+
+        return slotChoice;
+    }
+
     
 }
