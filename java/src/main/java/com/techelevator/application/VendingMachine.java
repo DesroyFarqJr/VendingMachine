@@ -8,12 +8,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class VendingMachine {
 
     Funds availableFunds = new Funds();
     private int purchaseCounter = 1;
+
+    Logger logger = new Logger("Audit.txt");
 
     private static List<ItemInfo> itemList = new ArrayList<>();
 
@@ -46,6 +49,8 @@ public class VendingMachine {
 
     public void run() {
         loadFile();
+
+        logger.write("INITIALIZING");
 
         while (true) {
             UserOutput.displayHomeScreen();
@@ -103,8 +108,11 @@ public class VendingMachine {
                selectItem();
 
             } else if (choice.equals("Finish Transaction")) {
+                DecimalFormat dfZero = new DecimalFormat("0.00");
+                double preTraFunds = availableFunds.getFunds();
                 availableFunds.getChange(availableFunds.getFunds());
                 availableFunds.setFunds(0);
+                logger.write("CHANGE GIVEN: $" + dfZero.format(preTraFunds) + "   $" + dfZero.format(availableFunds.getFunds()));
                 returnToMainMenu();
 
             }
@@ -123,15 +131,19 @@ public class VendingMachine {
     }
 
     public void feedMoney() {
+        double preTraFunds = availableFunds.getFunds();
         availableFunds.addFunds(UserInput.insertCash());
+        logger.write("MONEY FED: $" + preTraFunds + "   $" + availableFunds.getFunds());
 
         purchaseMenu();
     }
 
     public void selectItem() {
 
+        DecimalFormat dfZero = new DecimalFormat("0.00");
+
         String slotChoice = UserInput.itemSelector();
-        int index = 0;
+        double preTraFunds = availableFunds.getFunds();
 
 
 
@@ -152,6 +164,7 @@ public class VendingMachine {
 
                     if(purchaseCounter%2 == 0) {
                         availableFunds.subtract(itemLoop.getPrice()-1.00);
+                        System.out.println("DISCOUNT APPLIED");
                     }
 
                     else {
@@ -179,6 +192,8 @@ public class VendingMachine {
                     //Take logger object - write message to its
                     //Date time apart of the logger method.
 //                    System.out.println(itemLoop.getRemainingAmount());
+
+                    logger.write(itemLoop.getName() + "  " + itemLoop.getSlot() + " $" + dfZero.format(preTraFunds) + "   $" + dfZero.format(availableFunds.getFunds()));
 
                     purchaseMenu();
 

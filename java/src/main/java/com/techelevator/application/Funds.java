@@ -58,6 +58,4 @@ public class Funds {
         return funds;
     }
 
-
-
 }
