@@ -3,6 +3,11 @@ package com.techelevator.application;
 public class Funds {
 
     private double funds;
+    private int dollaDollaBill;
+    private int quarters;
+    private int dimes;
+    private int nickels;
+    private int pennies;
 
     public Funds() {
         funds = 0.0;
@@ -20,4 +25,18 @@ public class Funds {
         this.funds = funds + addedFunds;
         return funds;
     }
+
+    public double subtract (double subtractFunds) {
+        this.funds = funds - subtractFunds;
+        return funds;
+
+    }
+
+    public double getChange (double dispenseChange) {
+
+        return funds;
+    }
+
+
+
 }
