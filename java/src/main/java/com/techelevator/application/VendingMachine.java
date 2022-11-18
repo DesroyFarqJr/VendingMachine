@@ -147,7 +147,7 @@ public class VendingMachine {
                     purchaseMenu();
 
                 }
-
+//write to log after purchase.
                 else {
 
                     if(purchaseCounter%2 == 0) {
@@ -176,7 +176,8 @@ public class VendingMachine {
                     itemLoop.setRemainingAmount(itemLoop.getRemainingAmount()-1);
 
                     purchaseCounter++;
-
+                    //Take logger object - write message to its
+                    //Date time apart of the logger method.
 //                    System.out.println(itemLoop.getRemainingAmount());
 
                     purchaseMenu();
