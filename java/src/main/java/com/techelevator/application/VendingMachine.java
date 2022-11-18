@@ -67,6 +67,27 @@ public class VendingMachine {
         }
     }
 
+    public void  returnToMainMenu() {
+        while (true) {
+            UserOutput.displayHomeScreen();
+            String choice = UserInput.getHomeScreenOption();
+
+            if (choice.equals("display")) {
+                System.out.println("Vending Machine Choices");
+                displayMenu();
+
+
+                // display the vending machine slots
+            } else if (choice.equals("purchase")) {
+                purchaseMenu();
+                // make a purchase
+            } else if (choice.equals("exit")) {
+                // good bye
+                break;
+            }
+        }
+    }
+
     public void purchaseMenu() {
         boolean stay = true;
         while (stay) {
@@ -82,6 +103,9 @@ public class VendingMachine {
                selectItem();
 
             } else if (choice.equals("Finish Transaction")) {
+                availableFunds.getChange(availableFunds.getFunds());
+                availableFunds.setFunds(0);
+                returnToMainMenu();
 
             }
 
@@ -153,7 +177,7 @@ public class VendingMachine {
 
                     purchaseCounter++;
 
-                    System.out.println(itemLoop.getRemainingAmount());
+//                    System.out.println(itemLoop.getRemainingAmount());
 
                     purchaseMenu();
 

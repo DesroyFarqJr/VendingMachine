@@ -53,7 +53,7 @@ public class UserInput
             return "Feed Money";
         } else if(choice.equals("S")) {
             return "Select Item";
-        } else if(choice.equals("3")) {
+        } else if(choice.equals("F")) {
             return "Finish Transaction";
         } else {
             return "";

@@ -33,6 +33,27 @@ public class Funds {
     }
 
     public double getChange (double dispenseChange) {
+        double changeDue = dispenseChange;
+        double change;
+      change = Math.ceil(dispenseChange*100);
+
+      dollaDollaBill = Math.round((int)change/100);
+      change = change % 100;
+
+      int quarters = Math.round((int)change/25);
+      change = change % 25;
+
+      int dimes = Math.round((int) change/10);
+      change = change % 10;
+
+      int nickels = Math.round((int) change/5);
+      change %= 5;
+
+      int pennies = Math.round((int) change/1);
+
+        System.out.println("Your Change  "+"Dollars: $"+ dollaDollaBill + " | Quarters: " + quarters + " | Dimes: " + dimes + "| Nickels: " + nickels + " | Pennies " + pennies);
+
+//        dispenseChange  = dispenseChange % 100;
 
         return funds;
     }
