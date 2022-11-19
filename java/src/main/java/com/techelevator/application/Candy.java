@@ -17,13 +17,13 @@ public class Candy implements Items {
 
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public BigDecimal getPrice() {
+//        return price;
+//    }
 
     @Override
     public String getItemName() {
