@@ -42,7 +42,9 @@ public class Logger {
 
         }
 
-        writer.append(lineOfLog);
+
+
+        writer.append(String.format("%20s \r\n", lineOfLog));
         writer.flush();
         writer.close();
 

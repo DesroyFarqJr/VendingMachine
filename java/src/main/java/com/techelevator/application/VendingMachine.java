@@ -112,7 +112,7 @@ public class VendingMachine {
                 double preTraFunds = availableFunds.getFunds();
                 availableFunds.getChange(availableFunds.getFunds());
                 availableFunds.setFunds(0);
-                logger.write("CHANGE GIVEN: $" + dfZero.format(preTraFunds) + "   $" + dfZero.format(availableFunds.getFunds()));
+                logger.write("CHANGE GIVEN:  $" + dfZero.format(preTraFunds) + "  $" +dfZero.format(availableFunds.getFunds()));
                 returnToMainMenu();
 
             }
@@ -133,7 +133,7 @@ public class VendingMachine {
     public void feedMoney() {
         double preTraFunds = availableFunds.getFunds();
         availableFunds.addFunds(UserInput.insertCash());
-        logger.write("MONEY FED: $" + preTraFunds + "   $" + availableFunds.getFunds());
+        logger.write("MONEY FED:  $" + preTraFunds + "  $" + availableFunds.getFunds());
 
         purchaseMenu();
     }
@@ -193,7 +193,7 @@ public class VendingMachine {
                     //Date time apart of the logger method.
 //                    System.out.println(itemLoop.getRemainingAmount());
 
-                    logger.write(itemLoop.getName() + "  " + itemLoop.getSlot() + " $" + dfZero.format(preTraFunds) + "   $" + dfZero.format(availableFunds.getFunds()));
+                    logger.write(itemLoop.getName() + "  " + itemLoop.getSlot() + "  $" + dfZero.format(preTraFunds) + "  $" + dfZero.format(availableFunds.getFunds()));
 
                     purchaseMenu();
 
